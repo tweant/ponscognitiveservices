@@ -1,1 +1,659 @@
 ﻿Secret: adc51bf9927e727d8dfe9ecb4f9d02440fdc89f35514b3df0a14251e3918dcec
+URL: https://api.pons.com/v1/dictionaries
+
+https://api.pons.com/v1/dictionary?l=depl&q=house&language=en
+[
+    {
+        "lang": "pl",
+        "hits": [
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "house",
+                        "headword_full": "house <span class=\"flexion\"><<span class=\"info\"><acronym title=\"genitive\">gen</acronym></span> house’u, <span class=\"info\"><acronym title=\"no plural\">bez lm</acronym></span> ></span> <span class='phonetics'>[xaws]</span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> <span class=\"topic\"><acronym title=\"music\">MUZ</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">house</strong>",
+                                        "target": "House <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">słuchać <strong class=\"tilde\">house’u</strong></span>",
+                                        "target": "House hören"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "house’owy",
+                        "headword_full": "house’owy <span class='phonetics'>[xawsovɨ]</span>, <span class=\"headword\">housowy</span> <span class='phonetics'>[xawsovɨ]</span> <span class=\"wordclass\"><acronym title=\"adjective\">ADJ</acronym></span> <span class=\"topic\"><acronym title=\"music\">MUZ</acronym></span>",
+                        "wordclass": "adjective and adverb",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">house’owy</strong>",
+                                        "target": "House-"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">muzyka house’owa</span>",
+                                        "target": "Housemusik <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">klub <strong class=\"tilde\">house’owy</strong></span>",
+                                        "target": "Houseclub <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
+----
+[
+    {
+        "lang": "de",
+        "hits": [
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "Ha̱u̱s",
+                        "headword_full": "Ha̱u̱s <span class=\"flexion\"><‑es, Häuser></span> <span class='phonetics'>[haʊs, <span class=\"info\">pl:</span> ˈhɔɪzɐ]</span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"neuter\">nt</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "1. Haus:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong> <span class=\"sense\">(Gebäude zum Wohnen, Heim, Zuhause)</span>",
+                                        "target": "dom <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong> <span class=\"sense\">(Wohnung)</span>",
+                                        "target": "mieszkanie <span class=\"genus\"><acronym title=\"neuter\">nt</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">ins <strong class=\"tilde\">Haus</strong> gehen/kommen</span>",
+                                        "target": "wchodzić <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">wejść</span>]</span> do domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">aus dem <strong class=\"tilde\">Haus</strong> gehen</span>",
+                                        "target": "wychodzić <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">wyjść</span>]</span> z domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">nach <strong class=\"tilde\">Hause</strong> gehen</span> <span class=\"example\">[<span class=\"or\">oder</span> kommen]</span>",
+                                        "target": "iść <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">pójść</span>]</span> /przychodzić <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">przyjść</span>]</span> do domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\"><acronym title=\"jemanden\">jdn</acronym> nach <strong class=\"tilde\">Hause</strong> bringen</span>",
+                                        "target": "zaprowadzić kogoś do domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">er ist nicht zu <strong class=\"tilde\">Hause</strong></span>",
+                                        "target": "nie ma go w domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">bei ihr zu <strong class=\"tilde\">Hause</strong></span>",
+                                        "target": "u niej w domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">sich [bei <acronym title=\"jemandem\">jdm</acronym>] wie zu <strong class=\"tilde\">Hause</strong> fühlen</span>",
+                                        "target": "czuć się [u kogoś] jak u siebie w domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">wie geht’s zu <strong class=\"tilde\">Hause?</strong></span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                                        "target": "co słychać w domu?"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">in Posen zu <strong class=\"tilde\">Hause</strong> sein</span>",
+                                        "target": "mieszkać w Poznaniu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">nirgendwo zu <strong class=\"tilde\">Hause</strong> sein</span>",
+                                        "target": "nigdzie nie czuć się jak u siebie"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">zu <strong class=\"tilde\">Hause</strong> ist es doch am schönsten!</span>",
+                                        "target": "wszędzie dobrze, ale w domu najlepiej! <span class=\"rhetoric\"><acronym title=\"proverb\">prov</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">[<acronym title=\"etwas\">etw</acronym>] ins <strong class=\"tilde\">Haus</strong> liefern</span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                                        "target": "dostarczać <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">dostarczyć</span>]</span> [coś] do domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">frei <strong class=\"tilde\">Haus</strong></span> <span class=\"topic\"><acronym title=\"business\">HANDEL</acronym></span>",
+                                        "target": "franco siedziba <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> odbiorcy"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">wir wohnen <strong class=\"tilde\">Haus</strong> an <strong class=\"tilde\">Haus</strong></span>",
+                                        "target": "mieszkamy dom przy domu <span class=\"target\">[<span class=\"or\">oder</span> obok siebie]</span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">außer <strong class=\"tilde\">Haus</strong> essen</span>",
+                                        "target": "jadać <span class=\"target\">[<span class=\"or\">oder</span> jeść]</span> poza domem"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">von <strong class=\"tilde\">Haus</strong> zu <strong class=\"tilde\">Haus</strong> gehen</span>",
+                                        "target": "chodzić od drzwi do drzwi"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\">in <acronym title=\"etwas\">etw</acronym> <span class=\"case\"><acronym title=\"dative\">dat</acronym></span> zu <strong class=\"tilde\">Hause</strong> sein</span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                                        "target": "znać się na czymś"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\">in der Physik bin ich nicht zu <strong class=\"tilde\">Haus</strong></span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                                        "target": "nie jestem dobry z fizyki"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\"><acronym title=\"etwas\">etw</acronym> steht ins <strong class=\"tilde\">Haus</strong></span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                                        "target": "coś się szykuje"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\"><strong class=\"tilde\">Haus</strong> und Hof verspielen</span>",
+                                        "target": "przegrać ostatnią koszulę"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "2. Haus <span class=\"sense\">(Familie)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "dom <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "rodzina <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">das ganze <strong class=\"tilde\">Haus</strong></span>",
+                                        "target": "wszyscy domownicy <span class=\"genus\"><acronym title=\"masculine plural\">mpl</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">die Dame des <strong class=\"tilde\">Hauses</strong></span>",
+                                        "target": "pani <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">die Dame des <strong class=\"tilde\">Hauses</strong></span>",
+                                        "target": "gospodyni <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">der Herr des <strong class=\"tilde\">Hauses</strong></span>",
+                                        "target": "pan <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">der Herr des <strong class=\"tilde\">Hauses</strong></span>",
+                                        "target": "gospodarz <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">die Tochter des <strong class=\"tilde\">Hauses</strong></span>",
+                                        "target": "córka <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> gospodarzy"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">aus gutem <strong class=\"tilde\">Hause</strong></span>",
+                                        "target": "z dobrego domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">seit der Sohn aus dem <strong class=\"tilde\">Haus</strong> ist ...</span>",
+                                        "target": "odkąd syn <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> opuścił dom..."
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\"><strong class=\"tilde\">Haus</strong> halten</span>",
+                                        "target": "prowadzić dom"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\">von <strong class=\"tilde\">Hause</strong> aus</span> <span class=\"sense\">(von der Familie her)</span>",
+                                        "target": "z rodziny"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\">von <strong class=\"tilde\">Hause</strong> aus</span> <span class=\"sense\">(von Natur aus)</span>",
+                                        "target": "z natury"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\">von <strong class=\"tilde\">Haus</strong> aus war sie reich</span>",
+                                        "target": "była bogata z domu"
+                                    },
+                                    {
+                                        "source": "<span class=\"idiom_proverb\">von <strong class=\"tilde\">Haus</strong> aus ist er musikalisch</span>",
+                                        "target": "był muzykalny z natury"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "3. Haus <span class=\"sense\">(Dynastie)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "dom <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "ród <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">das <strong class=\"tilde\">Haus</strong> Habsburg</span>",
+                                        "target": "dynastia <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> Habsburgów"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "4. Haus <span class=\"style\"><acronym title=\"formal\">geh</acronym></span> <span class=\"sense\">(Firma)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "firma <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "koncern <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">im <strong class=\"tilde\">Hause</strong> sein</span>",
+                                        "target": "być członkiem koncernu"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">außer <strong class=\"tilde\">Haus[e]</strong> sein</span>",
+                                        "target": "być poza firmą"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "5. Haus <span class=\"sense\">(<strong class=\"tilde\">Schneckenhaus</strong>)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "skorupa <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "6. Haus <span class=\"style\"><acronym title=\"informal\">fam</acronym></span> <span class=\"sense\">(Mensch, Freund)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<span class=\"example\">na, altes <strong class=\"tilde\">Haus!</strong></span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                                        "target": "no, stary druhu!"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "7. Haus <span class=\"topic\">THEAT</span> <span class=\"sense\">(gesamtes Theaterpublikum)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "publiczność <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">volles <strong class=\"tilde\">Haus</strong></span>",
+                                        "target": "widownia <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> wypełniona po brzegi"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">vor ausverkauftem <strong class=\"tilde\">Haus</strong> spielen</span>",
+                                        "target": "grać <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">za‑</span>]</span> przed pełną widownią"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "8. Haus <span class=\"sense\">(Gebäude zu bestimmtem Zweck)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<span class=\"example\">das kleine/große <strong class=\"tilde\">Haus</strong></span> <span class=\"topic\">THEAT</span>",
+                                        "target": "mała/duża scena <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">das Haus des Herrn</span> <span class=\"topic\"><acronym title=\"religion\">REL</acronym></span>",
+                                        "target": "dom <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> Boży"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">ein öffentlisches <strong class=\"tilde\">Haus</strong></span>",
+                                        "target": "dom publiczny"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "9. Haus <span class=\"sense\">(Villa, Gasthof)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<span class=\"example\"><strong class=\"tilde\">„Haus</strong> Sonnenhof“</span>",
+                                        "target": "pensjonat <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> „Sonnenhof”"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">das erste <strong class=\"tilde\">Haus</strong> am Platz</span>",
+                                        "target": "najlepszy hotel <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> w miejście"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">eine Spezialität des <strong class=\"tilde\">Hauses</strong></span>",
+                                        "target": "specjalność <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> domu"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "10. Haus <span class=\"topic\"><acronym title=\"politics\">POL</acronym></span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong> <span class=\"sense\">(Kammer: des Parlaments)</span>",
+                                        "target": "izba <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"sense\">(Parlament)</span> <span class=\"example\">das Hohe <strong class=\"tilde\">Haus</strong></span>",
+                                        "target": "parlament <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">das Weiße <strong class=\"tilde\">Haus</strong></span>",
+                                        "target": "Biały Dom"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">das europäische <strong class=\"tilde\">Haus</strong></span> <span class=\"rhetoric\">fig</span>",
+                                        "target": "wspólna Europa <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "11. Haus <span class=\"topic\"><acronym title=\"astrology\">ASTR</acronym></span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus</strong>",
+                                        "target": "dom <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">Jupiter stand im zweiten Haus, als sie geboren wurde</span>",
+                                        "target": "kiedy się urodziła, Jupiter <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> znajdował się w drugim domu"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "Ha̱u̱s-Ha̱u̱s-Verkehr",
+                        "headword_full": "Ha̱u̱s-Ha̱u̱s-Verkehr <span class=\"flexion\"><‑s, <span class=\"info\"><acronym title=\"no plural\">kein Pl.</acronym></span> ></span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus-Haus-Verkehr</strong>",
+                                        "target": "przewóz <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> towarów od wysyłającego do domu klienta"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "Ha̱u̱s-zu-Ha̱u̱s-Verkauf",
+                        "headword_full": "Ha̱u̱s-zu-Ha̱u̱s-Verkauf <span class=\"flexion\"><‑[e]s, <span class=\"info\"><acronym title=\"no plural\">kein Pl.</acronym></span> ></span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> <span class=\"topic\"><acronym title=\"business\">HANDEL</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus-zu-Haus-Verkauf</strong>",
+                                        "target": "handel <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> obwoźny"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "Fre̱i̱-Haus-Lieferung",
+                        "headword_full": "Fre̱i̱-Haus-Lieferung <span class=\"flexion\"><‑, ‑en></span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> <span class=\"topic\"><acronym title=\"business\">HANDEL</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Frei-Haus-Lieferung</strong>",
+                                        "target": "dostawa <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> franco siedziba"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "Haus- und Familienbetrug",
+                        "headword_full": "Haus- und Familienbetrug <span class=\"flexion\"><‑[e]s, <span class=\"info\"><acronym title=\"no plural\">kein Pl.</acronym></span> ></span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> <span class=\"topic\"><acronym title=\"law\">JUR</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus- und Familienbetrug</strong>",
+                                        "target": "oszustwo <span class=\"genus\"><acronym title=\"neuter\">nt</acronym></span> w kręgu domowym lub rodzinnym"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "Haus- und Familiendiebstahl",
+                        "headword_full": "Haus- und Familiendiebstahl <span class=\"flexion\"><[e]s, ‑diebstähle></span> <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span> <span class=\"genus\"><acronym title=\"masculine\">m</acronym></span> <span class=\"topic\"><acronym title=\"law\">JUR</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">Haus- und Familiendiebstahl</strong>",
+                                        "target": "kradzież <span class=\"genus\"><acronym title=\"feminine\">f</acronym></span> w kręgu domowym lub rodzinnym"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "ha̱u̱sen",
+                        "headword_full": "ha̱u̱sen <span class='phonetics'>[ˈhaʊzən]</span> <span class=\"wordclass\"><acronym title=\"verb\">VERB</acronym></span> <span class=\"verbclass\"><acronym title=\"intransitive verb\">intr</acronym></span> <span class=\"rhetoric\"><acronym title=\"pejorative\">pej</acronym></span> <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>",
+                        "wordclass": "intransitive verb",
+                        "arabs": [
+                            {
+                                "header": "1. hausen <span class=\"sense\">(erbärmlich wohnen)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">hausen</strong>",
+                                        "target": "gnieździć się"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">[in einer Bruchbude] <strong class=\"tilde\">hausen</strong></span>",
+                                        "target": "koczować [w ruderze] <span class=\"style\"><acronym title=\"informal\">fam</acronym></span>"
+                                    }
+                                ]
+                            },
+                            {
+                                "header": "2. hausen <span class=\"sense\">(wüten)</span>:",
+                                "translations": [
+                                    {
+                                        "source": "<span class=\"example\">in <acronym title=\"etwas\">etw</acronym> <span class=\"case\"><acronym title=\"dative\">dat</acronym></span> <strong class=\"tilde\">hausen</strong></span> <span class=\"sense\">(Sturm)</span>",
+                                        "target": "pustoszyć <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">s‑</span>]</span> coś"
+                                    },
+                                    {
+                                        "source": "<span class=\"example\">in <acronym title=\"etwas\">etw</acronym> <span class=\"case\"><acronym title=\"dative\">dat</acronym></span> <strong class=\"tilde\">hausen</strong></span> <span class=\"sense\">(Person)</span>",
+                                        "target": "demolować <span class=\"perf\">[<span class=\"tempus\"><acronym title=\"perfective form\">perf</acronym></span> <span class=\"perf\">z‑</span>]</span> coś"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "ha̱u̱ rụck",
+                        "headword_full": "ha̱u̱ rụck <span class='phonetics'>[haʊ​ˈrʊk]</span> <span class=\"wordclass\"><acronym title=\"interjection\">INTERJ</acronym></span>",
+                        "wordclass": "interjection",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"headword\">hau ruck</strong>",
+                                        "target": "i raz"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "entry",
+                "opendict": true,
+                "roms": [
+                    {
+                        "headword": "Hau­ben­koch",
+                        "headword_full": "Hau­ben­koch <span class=\"wordclass\"><acronym title=\"noun\">NOUN</acronym></span>",
+                        "wordclass": "noun",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<strong class=\"tilde\">Hau­ben­koch</strong> <span class=\"grammar SUBST\"><acronym title=\"masculine\">m</acronym></span> <span class=\"region\"><acronym title=\"Austrian\" class=\"A\">A</acronym></span>",
+                                        "target": "sławny szef kuchni <span class=\"grammar SUBST\"><acronym title=\"masculine\">m</acronym></span>"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "lang": "pl",
+        "hits": [
+            {
+                "type": "entry",
+                "opendict": false,
+                "roms": [
+                    {
+                        "headword": "hau",
+                        "headword_full": "hau <span class='phonetics'>[xaw]</span> <span class=\"wordclass\"><acronym title=\"interjection\">INTERJ</acronym></span>",
+                        "wordclass": "interjection",
+                        "arabs": [
+                            {
+                                "header": "",
+                                "translations": [
+                                    {
+                                        "source": "<span class=\"example\"><strong class=\"tilde\">hau</strong>, <strong class=\"tilde\">hau!</strong></span>",
+                                        "target": "wau, wau!"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
+
+-- TRANSLATION ONLY--
+https://api.pons.com/v1/dictionary?q=to%20care%20for&l=deen
+[
+  {
+    "lang": "en",
+    "hits": [
+      {
+        "type": "entry",
+        "opendict": false,
+        "roms": [
+          {
+            "headword": "care for",
+            "headword_full": "care for ",
+            "arabs": [
+              {
+                "header": "",
+                "translations": [
+                  {
+                    "source": "<strong class=\"headword\">care for</strong>",
+                    "target": "sorgen für"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "entry",
+        "opendict": false,
+        "roms": [
+          {
+            "headword": "care as·sis·tant for the ˈel·der·ly",
+            "headword_full": "care as<span class=\"separator\">·</span>sis<span class=\"separator\">·</span>tant for the ˈel<span class=\"separator\">·</span>der<span class=\"separator\">·</span>ly ",
+            "arabs": [
+              {
+                "header": "",
+                "translations": [
+                  {
+                    "source": "<strong class=\"headword\">care assistant for the elderly</strong>",
+                    "target": "Altenpfleger<span class=\"feminine\">(in)</span>"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

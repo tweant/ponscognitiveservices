@@ -2,7 +2,10 @@
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
-using PonsCognitiveServices.Model;
+using PonsCognitiveServices.Helpers;
+using PonsCognitiveServices.Services;
+
+//using PonsCognitiveServices.Model;
 
 namespace PonsCognitiveServices.ViewModel
 {
@@ -15,19 +18,21 @@ namespace PonsCognitiveServices.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             var nav = new NavigationService();
-            nav.Configure(SecondPageKey, typeof(SecondPage));
+            //nav.Configure(SecondPageKey, typeof(SecondPage));
             SimpleIoc.Default.Register<INavigationService>(() => nav);
 
-            SimpleIoc.Default.Register<IDialogService, DialogService>();
+            var pons = new PonsRestService();
+            pons.SetSecretKey(Constants.PonsApiSecret);
+            SimpleIoc.Default.Register<IPonsRestService>( ()=>pons);
 
-            if (ViewModelBase.IsInDesignModeStatic)
-            {
-                SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
-            }
-            else
-            {
-                SimpleIoc.Default.Register<IDataService, DataService>();
-            }
+            //if (ViewModelBase.IsInDesignModeStatic)
+            //{
+            //    SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
+            //}
+            //else
+            //{
+            //    SimpleIoc.Default.Register<IDataService, DataService>();
+            //}
 
             SimpleIoc.Default.Register<MainViewModel>();
         }

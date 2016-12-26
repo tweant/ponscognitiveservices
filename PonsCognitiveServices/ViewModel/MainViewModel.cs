@@ -1,164 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
-using GalaSoft.MvvmLight.Threading;
-using GalaSoft.MvvmLight.Views;
-using Microsoft.Practices.ServiceLocation;
-using PonsCognitiveServices.Model;
+using PonsCognitiveServices.Services;
 
 namespace PonsCognitiveServices.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        public const string ClockPropertyName = "Clock";
-        public const string WelcomeTitlePropertyName = "WelcomeTitle";
+        private readonly IPonsRestService _pons;
+        private string _restResult;
+        private RelayCommand _getRestRequestCommand;
 
-        private readonly IDataService _dataService;
-        private readonly INavigationService _navigationService;
-        private string _clock = "Starting...";
-        private int _counter;
-        private RelayCommand _incrementCommand;
-        private RelayCommand<string> _navigateCommand;
-        private string _originalTitle;
-        private bool _runClock;
-        private RelayCommand _sendMessageCommand;
-        private RelayCommand _showDialogCommand;
-        private string _welcomeTitle = string.Empty;
 
-        public string Clock
+        public MainViewModel(IPonsRestService ponsRestService)
         {
-            get
-            {
-                return _clock;
-            }
-            set
-            {
-                Set(ClockPropertyName, ref _clock, value);
-            }
+            _pons = ponsRestService;
         }
 
-        public RelayCommand IncrementCommand
+
+        public string RestResult
+        {
+            get { return _restResult; }
+            set { Set(() => RestResult, ref _restResult, value); }
+        }
+
+
+        public RelayCommand GetRestRequestCommand
         {
             get
             {
-                return _incrementCommand
-                    ?? (_incrementCommand = new RelayCommand(
-                    () =>
+                return _getRestRequestCommand
+                    ?? (_getRestRequestCommand = new RelayCommand(
+                    async () =>
                     {
-                        WelcomeTitle = string.Format("Counter clicked {0} times", ++_counter);
+                        RestResult= await _pons.GetRequest(new Uri("https://api.pons.com/v1/dictionary?q=to%20care%20for&l=deen"));
                     }));
-            }
-        }
-
-        public RelayCommand<string> NavigateCommand
-        {
-            get
-            {
-                return _navigateCommand
-                       ?? (_navigateCommand = new RelayCommand<string>(
-                           p => _navigationService.NavigateTo(ViewModelLocator.SecondPageKey, p),
-                           p => !string.IsNullOrEmpty(p)));
-            }
-        }
-
-        public RelayCommand SendMessageCommand
-        {
-            get
-            {
-                return _sendMessageCommand
-                    ?? (_sendMessageCommand = new RelayCommand(
-                    () =>
-                    {
-                        Messenger.Default.Send(
-                            new NotificationMessageAction<string>(
-                                "Testing",
-                                reply =>
-                                {
-                                    WelcomeTitle = reply;
-                                }));
-                    }));
-            }
-        }
-
-        public RelayCommand ShowDialogCommand
-        {
-            get
-            {
-                return _showDialogCommand
-                       ?? (_showDialogCommand = new RelayCommand(
-                           async () =>
-                           {
-                               var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
-                               await dialog.ShowMessage("Hello Universal Application", "it works...");
-                           }));
-            }
-        }
-
-        public string WelcomeTitle
-        {
-            get
-            {
-                return _welcomeTitle;
-            }
-
-            set
-            {
-                Set(ref _welcomeTitle, value);
-            }
-        }
-
-        public MainViewModel(
-            IDataService dataService,
-            INavigationService navigationService)
-        {
-            _dataService = dataService;
-            _navigationService = navigationService;
-            Initialize();
-        }
-
-        public void RunClock()
-        {
-            _runClock = true;
-
-            Task.Run(async () =>
-            {
-                while (_runClock)
-                {
-                    try
-                    {
-                        DispatcherHelper.CheckBeginInvokeOnUI(() =>
-                        {
-                            Clock = DateTime.Now.ToString("HH:mm:ss");
-                        });
-
-                        await Task.Delay(1000);
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-            });
-        }
-
-        public void StopClock()
-        {
-            _runClock = false;
-        }
-
-        private async Task Initialize()
-        {
-            try
-            {
-                var item = await _dataService.GetData();
-                _originalTitle = item.Title;
-                WelcomeTitle = item.Title;
-            }
-            catch (Exception ex)
-            {
-                // Report error here
-                WelcomeTitle = ex.Message;
             }
         }
     }

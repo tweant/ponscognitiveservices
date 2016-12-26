@@ -6,7 +6,7 @@ namespace PonsCognitiveServices
 {
     public sealed partial class MainPage
     {
-        public MainViewModel Vm => (MainViewModel)DataContext;
+        //public MainViewModel Vm => (MainViewModel)DataContext;
 
         public MainPage()
         {
@@ -14,10 +14,10 @@ namespace PonsCognitiveServices
 
             SystemNavigationManager.GetForCurrentView().BackRequested += SystemNavigationManagerBackRequested;
 
-            Loaded += (s, e) =>
-            {
-                Vm.RunClock();
-            };
+            //Loaded += (s, e) =>
+            //{
+            //    Vm.RunClock();
+            //};
         }
 
         private void SystemNavigationManagerBackRequested(object sender, BackRequestedEventArgs e)
@@ -31,8 +31,8 @@ namespace PonsCognitiveServices
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            Vm.StopClock();
-            base.OnNavigatingFrom(e);
+            //Vm.StopClock();
+            //base.OnNavigatingFrom(e);
         }
     }
 }
