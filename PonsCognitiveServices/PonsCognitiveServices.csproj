@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Design\bootstrap_dict-50228244-min.css" />
+    <Content Include="Design\PonsResultViewStyle.css" />
     <Content Include="Documentation\design.css" />
     <Content Include="Documentation\PonsApiCalls.html" />
     <Content Include="Documentation\PonsInfo.txt" />

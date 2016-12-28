@@ -9,10 +9,16 @@
       mc:Ignorable="d"
       DataContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <StackPanel>
-        <TextBlock Text="PONS + Microsoft Cognitive Services"/>
-        <Button Content="Get" Command="{Binding GetRestRequestCommand}"/>
-        <TextBox Text="{Binding WebAddress}" TextWrapping="Wrap"/>
-        <WebView helpers:MyExtensions.HTML="{Binding WebAddress}"  Height="500"/>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="PONS + Microsoft Cognitive Services"/>
+            <Button Content="Get" Command="{Binding GetRestRequestCommand}"/>
+            
+        </StackPanel>
+        <WebView Grid.Row="1" helpers:MyExtensions.HTML="{Binding WebAddress}"/>
+    </Grid>
 </Page>

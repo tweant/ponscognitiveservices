@@ -1,0 +1,187 @@
+﻿body {
+    margin: 0;
+}
+.results {
+    font-family: Arial,"Arial Unicode MS",sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+.entry {
+    color:rgb(51, 51, 51);
+    display:block;
+    margin-bottom: 40px;
+}
+.romhead.opened {
+    background-color:rgb(238, 238, 238);
+border-bottom-color:rgb(0, 123, 48);
+border-bottom-style:solid;
+border-bottom-width:0px;
+border-left-color:rgb(0, 123, 48);
+border-left-style:solid;
+border-left-width:0px;
+border-right-color:rgb(0, 123, 48);
+border-right-style:solid;
+border-right-width:0px;
+border-top-color:rgb(0, 123, 48);
+border-top-style:solid;
+border-top-width:1px;
+color:rgb(51, 51, 51);
+display:block;
+padding-bottom:12px;
+padding-left:10px;
+padding-top:12px;
+position:relative;
+text-size-adjust:100%;
+}
+.romhead.opened h2 {
+    color:rgb(51, 51, 51);
+display:block;
+font-family:Arial, "Arial Unicode MS", sans-serif;
+font-size:17.5px;
+font-weight:normal;
+line-height:20px;
+margin-bottom:0px;
+margin-left:0px;
+margin-right:0px;
+margin-top:0px;
+text-rendering:optimizeLegibility;
+text-size-adjust:100%;
+-webkit-margin-after:0px;
+-webkit-margin-before:0px;
+-webkit-margin-end:0px;
+-webkit-margin-start:0px;
+}
+.romhead.opened h2 span.flexion {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    text-rendering: optimizeLegibility;
+}
+.romhead.opened h2 span.phonetics {
+    color:rgb(128, 128, 128);
+    font-style: normal;
+    font-weight: normal;
+}
+.romhead.opened h2 span.phonetics span.info {
+    font-style: italic;
+}
+.romhead.opened h2 span.wordclass {
+    color:rgb(128, 128, 128);
+    font-style: normal;
+    font-weight: normal;
+}
+.romhead.opened h2 span.genus {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    font-weight: normal;
+}
+.translations.opened h3 {
+    background-color:rgb(238, 238, 238);
+border-bottom-color:rgb(213, 213, 213);
+border-bottom-style:solid;
+border-bottom-width:0px;
+border-left-color:rgb(213, 213, 213);
+border-left-style:solid;
+border-left-width:0px;
+border-right-color:rgb(213, 213, 213);
+border-right-style:solid;
+border-right-width:0px;
+border-top-color:rgb(213, 213, 213);
+border-top-style:solid;
+border-top-width:1px;
+color:rgb(51, 51, 51);
+display:block;
+font-family:Arial, "Arial Unicode MS", sans-serif;
+font-size:14px;
+font-style:italic;
+font-weight:normal;
+margin-bottom:0px;
+margin-left:0px;
+margin-right:0px;
+margin-top:0px;
+padding-bottom:4px;
+padding-left:10px;
+padding-right:10px;
+padding-top:4px;
+text-rendering:optimizeLegibility;
+}
+.translations.entity {
+    margin-bottom: 25px;
+}
+dl.dl-horizontal.kne.first {
+    border-top-color:rgb(213, 213, 213);
+border-top-style:solid;
+border-top-width:1px;
+margin:0;
+line-height: 20px;
+width: 100%;
+overflow: hidden;
+}
+dt {
+    float: left;
+    overflow-x: visible;
+    overflow-y: visible;
+    position: relative;
+    text-align: left;
+    text-overflow: clip;
+    white-space: normal;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+
+}
+.dt-inner.left {
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 5px;
+    padding-top: 4px;
+}
+.dt-inner.right {
+    padding-bottom: 4px;
+    padding-right: 20px;
+    padding-left: 5px;
+    padding-top: 4px;
+}
+dd {
+    width: 50%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+span.genus {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    font-weight: normal;
+}
+span.tempus {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    font-weight: normal;
+}
+span.rhetoric {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    font-weight: normal;
+}
+span.example {
+    font-style: italic;
+}
+span.topic {
+    color:rgb(128, 128, 128);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11.5px;
+}
+span.case {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    font-weight: normal;
+}
+span.style {
+    color:rgb(128, 128, 128);
+    font-style: italic;
+    font-weight: normal;
+}
+span.or {
+    font-style: italic;
+}
