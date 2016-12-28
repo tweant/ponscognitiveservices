@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Storage;
 using Newtonsoft.Json;
-using PonsCognitiveServices.Model;
+using PonsCognitiveServicesWPF.Model;
 
-namespace PonsCognitiveServices.Services
+namespace PonsCognitiveServicesWPF.Services
 {
     public class PonsDictionaryService : IPonsDictionaryService
     {
