@@ -12,7 +12,7 @@ namespace PonsCognitiveServices.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IPonsDictionaryService _pons;
-        private string _webAddress;
+        private string _webAddress = "http://www.wp.pl/";
         private RelayCommand _getRestRequestCommand;
 
 
@@ -37,7 +37,7 @@ namespace PonsCognitiveServices.ViewModel
                     ?? (_getRestRequestCommand = new RelayCommand(
                     async () =>
                     {
-                        WebAddress= await _pons.GeneratePage(new Uri("https://api.pons.com/v1/dictionary?q=to%20care%20for&l=deen"));
+                        WebAddress= await Task.Run<string>(()=>_pons.GeneratePage(new Uri("https://api.pons.com/v1/dictionary?q=to%20care%20for&l=deen")));
                     }));
             }
         }

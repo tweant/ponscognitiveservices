@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:helpers="using:PonsCognitiveServices.Helpers"
       x:Class="PonsCognitiveServices.MainPage"
       mc:Ignorable="d"
       DataContext="{Binding Main, Source={StaticResource Locator}}">
@@ -11,7 +12,7 @@
     <StackPanel>
         <TextBlock Text="PONS + Microsoft Cognitive Services"/>
         <Button Content="Get" Command="{Binding GetRestRequestCommand}"/>
-        <TextBlock Text="{Binding WebAddress}" TextWrapping="Wrap"/>
-        <WebView Source="{Binding WebAddress}"/>
+        <TextBox Text="{Binding WebAddress}" TextWrapping="Wrap"/>
+        <WebView helpers:MyExtensions.HTML="{Binding WebAddress}"  Height="500"/>
     </StackPanel>
 </Page>

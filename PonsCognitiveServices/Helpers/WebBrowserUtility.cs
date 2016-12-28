@@ -8,30 +8,65 @@ using Windows.UI.Xaml.Controls;
 
 namespace PonsCognitiveServices.Helpers
 {
-    public class WebBrowserUtility
+    public static class WebViewExtensions
     {
-        // "HtmlString" attached property for a WebView
-        public static readonly DependencyProperty HtmlStringProperty =
-           DependencyProperty.RegisterAttached("HtmlString", typeof(string), typeof(WebBrowserUtility), new PropertyMetadata("", OnHtmlStringChanged));
-
-        // Getter and Setter
-        public static string GetHtmlString(DependencyObject obj) { return (string)obj.GetValue(HtmlStringProperty); }
-        public static void SetHtmlString(DependencyObject obj, string value) { obj.SetValue(HtmlStringProperty, value); }
-
-        // Handler for property changes in the DataContext : set the WebView
-        private static void OnHtmlStringChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public static string GetUriSource(WebView view)
         {
+            return (string)view.GetValue(UriSourceProperty);
+        }
+
+        public static void SetUriSource(WebView view, string value)
+        {
+            view.SetValue(UriSourceProperty, value);
+        }
+
+        public static readonly DependencyProperty UriSourceProperty =
+            DependencyProperty.RegisterAttached(
+            "UriSource", typeof(string), typeof(WebViewExtensions),
+            new PropertyMetadata(null, OnUriSourcePropertyChanged));
+
+        private static void OnUriSourcePropertyChanged(DependencyObject sender,
+            DependencyPropertyChangedEventArgs e)
+        {
+            var webView = sender as WebView;
+            if (webView == null)
+                throw new NotSupportedException();
+
+            if (e.NewValue != null)
+            {
+                var uri = new Uri(e.NewValue.ToString());
+                webView.Navigate(uri);
+            }
+        }
+    }
+
+    class MyExtensions
+    {
+        public static string GetHTML(DependencyObject obj)
+        {
+            return (string)obj.GetValue(HTMLProperty);
+        }
+
+
+        public static void SetHTML(DependencyObject obj, string value)
+        {
+            obj.SetValue(HTMLProperty, value);
+        }
+
+        public static readonly DependencyProperty HTMLProperty =
+          DependencyProperty.RegisterAttached("HTML", typeof(string), typeof(MyExtensions), new PropertyMetadata("", new PropertyChangedCallback(OnHTMLChanged)));
+
+
+        private static void OnHTMLChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+
+
             WebView wv = d as WebView;
             if (wv != null)
             {
                 wv.NavigateToString((string)e.NewValue);
             }
         }
-
-//         <WebView local:MyProperties.HtmlString="{Binding CurrentHtmlString}"></WebView>
-//Normally you already have the following line at the top of your XAML file :
-
-//xmlns:local="using:MYNAMESPACE"
-//You can find more explanation here from Rob Caplan : http://blogs.msdn.com/b/wsdevsol/archive/2013/09/26/binding-html-to-a-webview-with-attached-properties.aspx
     }
 }
+
