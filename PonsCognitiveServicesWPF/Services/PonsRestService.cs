@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PonsCognitiveServicesWPF.Services
 {
-    public class PonsRestService : IPonsRestService
+    public class PonsRestService : IPonsRestService, IDisposable
     {
         private string _secretKey;
         private readonly HttpClient _client;
@@ -35,7 +35,16 @@ namespace PonsCognitiveServicesWPF.Services
 
         public void Dispose()
         {
-            _client?.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _client?.Dispose();
+            }
         }
     }
 }

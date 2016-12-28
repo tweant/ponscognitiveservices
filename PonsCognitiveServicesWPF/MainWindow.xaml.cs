@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using PonsCognitiveServicesWPF.ViewModel;
 
 namespace PonsCognitiveServicesWPF
 {

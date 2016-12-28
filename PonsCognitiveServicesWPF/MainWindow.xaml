@@ -5,34 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         xmlns:helpers="clr-namespace:PonsCognitiveServicesWPF.Helpers"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d ignore"
-        Height="300"
-        Width="300"
+        Height="600"
+        Width="500"
         Title="PONS + Cognitie Services"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        DataContext="{Binding Main, Source={StaticResource Locator}}" Style="{StaticResource FinishedWindow}">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Background="#007b30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding WindowMove}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <TextBlock Text="PONS + Microsoft Cognitive Services"/>
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button>MIN</Button>
+                <Button>MAX</Button>
+                <Button>EXIT</Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="#007b30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button>
-                    MICRO
+                <Button Command="{Binding InitializeRecordingCommand}">
+                    <Image Source="Design/microphoneIcon.png" Width="20"/>
                 </Button>
             </StackPanel>
-            <TextBox Grid.Column="1" Text="{Binding Query, Mode=TwoWay}" Margin="5"/>
-            <Button Grid.Column="2" Command="{Binding GetRestRequestCommand}" Margin="5">
-                GO
+            <TextBox Grid.Column="1" Text="{Binding Query, Mode=TwoWay}" Margin="5,5,0,5"/>
+            <Button Grid.Column="2" Command="{Binding GetRestRequestCommand}" Margin="0,5,5,5">
+                <Image Source="Design/searchIcon.png" Width="20"/>
             </Button>
         </Grid>
 
-        <WebBrowser Grid.Row="1" helpers:BrowserBehavior.Html="{Binding WebAddress}"/>
+        <WebBrowser Grid.Row="2" helpers:BrowserBehavior.Html="{Binding WebAddress}"/>
     </Grid>
 </Window>
+
