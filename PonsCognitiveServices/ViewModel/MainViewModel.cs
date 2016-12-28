@@ -11,21 +11,21 @@ namespace PonsCognitiveServices.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly IPonsRestService _pons;
-        private string _restResult;
+        private readonly IPonsDictionaryService _pons;
+        private string _webAddress;
         private RelayCommand _getRestRequestCommand;
 
 
-        public MainViewModel(IPonsRestService ponsRestService)
+        public MainViewModel(IPonsDictionaryService ponsRestService)
         {
             _pons = ponsRestService;
         }
 
 
-        public string RestResult
+        public string WebAddress
         {
-            get { return _restResult; }
-            set { Set(() => RestResult, ref _restResult, value); }
+            get { return _webAddress; }
+            set { Set(() => WebAddress, ref _webAddress, value); }
         }
 
 
@@ -37,9 +37,11 @@ namespace PonsCognitiveServices.ViewModel
                     ?? (_getRestRequestCommand = new RelayCommand(
                     async () =>
                     {
-                        RestResult= await _pons.GetRequest(new Uri("https://api.pons.com/v1/dictionary?q=to%20care%20for&l=deen"));
+                        WebAddress= await _pons.GeneratePage(new Uri("https://api.pons.com/v1/dictionary?q=to%20care%20for&l=deen"));
                     }));
             }
         }
+
+        
     }
 }

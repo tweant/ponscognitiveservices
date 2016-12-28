@@ -11,6 +11,7 @@
     <StackPanel>
         <TextBlock Text="PONS + Microsoft Cognitive Services"/>
         <Button Content="Get" Command="{Binding GetRestRequestCommand}"/>
-        <TextBlock Text="{Binding RestResult}" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding WebAddress}" TextWrapping="Wrap"/>
+        <WebView Source="{Binding WebAddress}"/>
     </StackPanel>
 </Page>

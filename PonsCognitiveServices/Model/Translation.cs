@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace PonsCognitiveServices.Model
 {
@@ -11,7 +12,9 @@ namespace PonsCognitiveServices.Model
     /// </summary>
     public class Translation
     {
+        [JsonProperty("source")]
         public string Source;
+        [JsonProperty("target")]
         public string Target;
     }
 }

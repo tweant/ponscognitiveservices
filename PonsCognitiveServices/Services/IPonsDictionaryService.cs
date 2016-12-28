@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PonsCognitiveServices.Services
 {
-    interface IPonsDictionaryService
+    public interface IPonsDictionaryService
     {
+        Task<string> GeneratePage(Uri uri);
     }
 }

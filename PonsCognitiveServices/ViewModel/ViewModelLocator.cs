@@ -24,6 +24,7 @@ namespace PonsCognitiveServices.ViewModel
             var pons = new PonsRestService();
             pons.SetSecretKey(Constants.PonsApiSecret);
             SimpleIoc.Default.Register<IPonsRestService>( ()=>pons);
+            SimpleIoc.Default.Register<IPonsDictionaryService, PonsDictionaryService>();
 
             //if (ViewModelBase.IsInDesignModeStatic)
             //{
