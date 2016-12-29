@@ -13,7 +13,7 @@ namespace PonsCognitiveServicesWPF.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IPonsDictionaryService _pons;
-        private string _webAddress = "http://www.wp.pl/";
+        private string _webAddress = "Welcome page";
         private RelayCommand _getRestRequestCommand;
         private string _query = "Enter query...";
 
@@ -44,12 +44,19 @@ namespace PonsCognitiveServicesWPF.ViewModel
                        ?? (_getRestRequestCommand = new RelayCommand(
                            async () =>
                            {
-                               WebAddress =
-                                   await Task.Run<string>(
-                                       () =>
-                                           _pons.GeneratePage(
-                                               new Uri(
-                                                   $"https://api.pons.com/v1/dictionary?q={Query.Replace(' ', '+')}&l=depl")));
+                               try
+                               {
+                                   WebAddress =
+                                       await Task.Run<string>(
+                                           () =>
+                                               _pons.GeneratePage(
+                                                   new Uri(
+                                                       $"https://api.pons.com/v1/dictionary?q={Query.Replace(' ', '+')}&l=depl")));
+                               }
+                               catch (NullReferenceException)
+                               {
+                                   WebAddress = "NullReference Exception";
+                               }
                            }));
             }
         }
@@ -192,7 +199,55 @@ namespace PonsCognitiveServicesWPF.ViewModel
                     () =>
                     {
                         Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                        wnd.DragMove();
+                        wnd?.DragMove();
+                    }));
+            }
+        }
+
+        private RelayCommand _minimizeWindow;
+        private RelayCommand _maximizeWindow;
+        private RelayCommand _closeWindow;
+
+        public RelayCommand CloseWindowCommand
+        {
+            get
+            {
+                return _closeWindow
+                    ?? (_closeWindow = new RelayCommand(
+                    () =>
+                    {
+                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+                        wnd?.Close();
+                    }));
+            }
+        }
+
+        public RelayCommand MaximizeWindowCommand
+        {
+            get
+            {
+                return _maximizeWindow
+                    ?? (_maximizeWindow = new RelayCommand(
+                    () =>
+                    {
+                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+                        if (wnd != null)
+                        {
+                            wnd.WindowState = wnd.WindowState== WindowState.Normal? WindowState.Maximized:WindowState.Normal;
+                        }
+                    }));
+            }
+        }
+        public RelayCommand MinimizeWindowCommand
+        {
+            get
+            {
+                return _minimizeWindow
+                    ?? (_minimizeWindow = new RelayCommand(
+                    () =>
+                    {
+                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+                        if (wnd != null) wnd.WindowState = WindowState.Minimized;
                     }));
             }
         }
