@@ -16,28 +16,71 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <Grid Grid.Row="0" Background="#007b30">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
-                <Button Command="{Binding InitializeRecordingCommand}">
-                    <Image Source="Design/microphoneIcon.png" Width="20"/>
-                </Button>
-            </StackPanel>
-            <TextBox Grid.Column="1" Text="{Binding Query, Mode=TwoWay}" Margin="0,5,0,5"/>
-            <Button Grid.Column="2" Command="{Binding GetRestRequestCommand}" Margin="0,5,5,5">
-                <Image Source="Design/searchIcon.png" Width="20"/>
-            </Button>
-        </Grid>
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <Grid Background="#007b30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="15,5,5,5">
 
-        <WebBrowser Grid.Row="1" helpers:BrowserBehavior.Html="{Binding WebAddress}" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+                    <TextBlock Text="{Binding LanguageFrom.PonsCode, Converter={StaticResource UpperCaseConverter}}" FontFamily="Segoe UI" FontSize="16" Foreground="White"
+                               VerticalAlignment="Center" MinWidth="24" TextAlignment="Center"/>
+                    <Button Style="{StaticResource GlyphButton}" Visibility="{Binding LanguageFrom.IsPonsAvailable,Converter={StaticResource BoolToVisConverter}}" Command="{Binding ReverseLanguages}">
+                        <TextBlock Text="&#xE13C;" FontFamily="Segoe MDL2 Assets" FontSize="20"
+                                   VerticalAlignment="Center" Margin="0,0,0,-4" />
+                    </Button>
+                    <TextBlock Text="{Binding LanguageTranslation.LanguageTo.PonsCode, Converter={StaticResource UpperCaseConverter}}" Visibility="{Binding LanguageFrom.IsPonsAvailable,Converter={StaticResource BoolToVisConverter}}" FontFamily="Segoe UI" FontSize="16" Foreground="White"
+                               VerticalAlignment="Center" MinWidth="24" TextAlignment="Center"/>
+
+                    
+                </StackPanel>
+                <Grid Grid.Column="1" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Command="{Binding InitializeRecordingCommand}" Style="{StaticResource SearchButton}" Visibility="{Binding LanguageFrom.IsMicrosoftSpeechRecognitionAvailable,Converter={StaticResource BoolToVisConverter}}">
+                        <TextBlock Text="&#xE720;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White" />
+                    </Button>
+                    <TextBox Grid.Column="1" Text="{Binding Query, Mode=TwoWay}" />
+                    <Button Grid.Column="2" Command="{Binding GetRestRequestCommand}" Style="{StaticResource SearchButton}" Visibility="{Binding LanguageFrom.IsPonsAvailable,Converter={StaticResource BoolToVisConverter}}">
+                        <TextBlock Text="&#xE094;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="White" />
+                    </Button>
+                </Grid>
+
+                <StackPanel Margin="0,5,5,5" Grid.Column="2" Orientation="Horizontal">
+                
+                    <Button Command="{Binding SettingsPanelToggle}" Style="{StaticResource GlyphButton}">
+                        <TextBlock Text="{Binding SettingsButtonContext}" FontFamily="Segoe MDL2 Assets" FontSize="20" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid Visibility="{Binding IsSettingsPanelShown, Converter={StaticResource BoolToVisConverter}}">
+                <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                    <ComboBox Width="100" Height="30" ItemsSource="{Binding LanguagesTree}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedItem="{Binding LanguageFrom}" />
+                    <Button Style="{StaticResource GlyphButton}" Command="{Binding ReverseLanguages}">
+                        <TextBlock Text="&#xE13C;" Visibility="{Binding LanguageFrom.IsPonsAvailable,Converter={StaticResource BoolToVisConverter}}" FontFamily="Segoe MDL2 Assets" FontSize="20" VerticalAlignment="Center" Margin="0,0,0,-4" />
+                    </Button>
+                        <ComboBox Height="30" Visibility="{Binding LanguageFrom.IsPonsAvailable,Converter={StaticResource BoolToVisConverter}}" Width="100" ItemsSource="{Binding LanguageFrom.TranslatesTo}" DisplayMemberPath="LanguageTo.Name" SelectedValuePath="LanguageTo.Name" SelectedItem="{Binding LanguageTranslation}" />
+                    
+                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5,0,5,5" Visibility="{Binding LanguageFrom.IsMicrosoftSpeechRecognitionAvailable, Converter={StaticResource BoolToVisConverter}}">
+                        <TextBlock Text="Voice recognition locale: " FontFamily="Segoe UI" FontSize="15" VerticalAlignment="Center" Foreground="White" Margin="5,1,5,0"/>
+                        <ComboBox Height="30" ItemsSource="{Binding LanguageFrom.SpeechLocales}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedItem="{Binding SelectedLocale}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <WebBrowser Grid.Row="1" helpers:BrowserBehavior.Html="{Binding WebAddress}"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto" />
     </Grid>
 </Window>
-

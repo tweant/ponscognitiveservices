@@ -12,11 +12,11 @@ namespace PonsCognitiveServicesWPF.Model
         [JsonProperty("header")]
         public string Header;
         [JsonProperty("translations")]
-        public List<Translation> Translations;
+        public List<TranslationContext> Translations;
 
         public Arab()
         {
-            Translations = new List<Translation>();
+            Translations = new List<TranslationContext>();
         }
     }
 }

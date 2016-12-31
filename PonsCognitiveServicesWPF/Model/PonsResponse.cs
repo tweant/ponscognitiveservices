@@ -8,8 +8,7 @@ namespace PonsCognitiveServicesWPF.Model
     public class PonsResponse
     {
         [JsonProperty("lang")]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public PonsLanguage Language;
+        public string Language;
         [JsonProperty("hits")]
         public List<Hit> Hits;
 

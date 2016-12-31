@@ -21,6 +21,7 @@ namespace PonsCognitiveServicesWPF.ViewModel
             pons.SetSecretKey(Constants.PonsApiSecret);
             SimpleIoc.Default.Register<IPonsRestService>( ()=>pons);
             SimpleIoc.Default.Register<IPonsDictionaryService, PonsDictionaryService>();
+            SimpleIoc.Default.Register<ILanguagesTreeService, LanguagesTreeService>();
 
             //if (ViewModelBase.IsInDesignModeStatic)
             //{

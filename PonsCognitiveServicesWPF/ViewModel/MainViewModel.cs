@@ -1,25 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.CognitiveServices.SpeechRecognition;
 using PonsCognitiveServicesWPF.Helpers;
 using PonsCognitiveServicesWPF.Services;
+using PonsCognitiveServicesWPF.Model.Language;
+using Language = PonsCognitiveServicesWPF.Model.Language.Language;
 
 namespace PonsCognitiveServicesWPF.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
         private readonly IPonsDictionaryService _pons;
+        private readonly ILanguagesTreeService _languageTree;
         private string _webAddress = "Welcome page";
         private RelayCommand _getRestRequestCommand;
         private string _query = "Enter query...";
 
-        public MainViewModel(IPonsDictionaryService ponsRestService)
+        public MainViewModel(IPonsDictionaryService ponsRestService, ILanguagesTreeService languageTreeService)
         {
             _pons = ponsRestService;
+            _languageTree = languageTreeService;
+
+            //
+            LanguageFrom = _languageTree.LanguageTree.Find(x => x.PonsCode.Equals("de"));
+            LanguageTranslation = LanguageFrom.TranslatesTo.Find(x => x.LanguageTo.PonsCode.Equals("pl"));
+            //LanguageTo = _languageTree.LanguageTree.Find(x => x.PonsCode.Equals("pl"));
         }
 
 
@@ -46,12 +56,7 @@ namespace PonsCognitiveServicesWPF.ViewModel
                            {
                                try
                                {
-                                   WebAddress =
-                                       await Task.Run<string>(
-                                           () =>
-                                               _pons.GeneratePage(
-                                                   new Uri(
-                                                       $"https://api.pons.com/v1/dictionary?q={Query.Replace(' ', '+')}&l=depl")));
+                                   WebAddress = await _pons.LookForQuery(LanguageTranslation, Query);
                                }
                                catch (NullReferenceException)
                                {
@@ -94,16 +99,19 @@ namespace PonsCognitiveServicesWPF.ViewModel
         /// </summary>
         private void CreateMicrophoneRecoClient()
         {
-            _micClient = SpeechRecognitionServiceFactory.CreateMicrophoneClient(
-                SpeechRecognitionMode.ShortPhrase,
-                "de-DE",
-                Constants.MicrosoftCognitiveServicesApiKey);
+            if (LanguageTranslation != null)
+            {
+                _micClient = SpeechRecognitionServiceFactory.CreateMicrophoneClient(
+                    SpeechRecognitionMode.ShortPhrase,
+                    LanguageTranslation.LanguageFrom.CurrentLocale.Code,
+                    Constants.MicrosoftCognitiveServicesApiKey);
 
-            // Event handlers for speech recognition results
-            _micClient.OnMicrophoneStatus += this.OnMicrophoneStatus;
-            _micClient.OnPartialResponseReceived += this.OnPartialResponseReceivedHandler;
-            _micClient.OnResponseReceived += this.OnMicShortPhraseResponseReceivedHandler;
-            _micClient.OnConversationError += this.OnConversationErrorHandler;
+                // Event handlers for speech recognition results
+                _micClient.OnMicrophoneStatus += this.OnMicrophoneStatus;
+                _micClient.OnPartialResponseReceived += this.OnPartialResponseReceivedHandler;
+                _micClient.OnResponseReceived += this.OnMicShortPhraseResponseReceivedHandler;
+                _micClient.OnConversationError += this.OnConversationErrorHandler;
+            }
         }
 
         /// <summary>
@@ -151,7 +159,7 @@ namespace PonsCognitiveServicesWPF.ViewModel
         {
             if (e.PhraseResponse.Results.Length == 0)
             {
-                Query="No phrase response is available.";
+                Query = "No phrase response is available.";
             }
             else
             {
@@ -164,9 +172,8 @@ namespace PonsCognitiveServicesWPF.ViewModel
                 //        e.PhraseResponse.Results[i].Confidence,
                 //        e.PhraseResponse.Results[i].DisplayText);
                 //}
-                Query = e.PhraseResponse.Results[0].DisplayText.Replace(".","");
+                Query = e.PhraseResponse.Results[0].DisplayText.Replace(".", "");
                 GetRestRequestCommand.Execute(null);
-
             }
         }
 
@@ -177,8 +184,7 @@ namespace PonsCognitiveServicesWPF.ViewModel
         /// <param name="e">The <see cref="SpeechErrorEventArgs"/> instance containing the event data.</param>
         private void OnConversationErrorHandler(object sender, SpeechErrorEventArgs e)
         {
-
-            Query = $"Error code: [{ e.SpeechErrorCode}] "+e.SpeechErrorText;
+            Query = $"Error code: [{e.SpeechErrorCode}] " + e.SpeechErrorText;
         }
 
         #endregion
@@ -195,12 +201,13 @@ namespace PonsCognitiveServicesWPF.ViewModel
             get
             {
                 return _windowMove
-                    ?? (_windowMove = new RelayCommand(
-                    () =>
-                    {
-                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                        wnd?.DragMove();
-                    }));
+                       ?? (_windowMove = new RelayCommand(
+                           () =>
+                           {
+                               Window wnd = Application.Current.Windows.OfType<Window>()
+                                   .SingleOrDefault(x => x.IsActive);
+                               wnd?.DragMove();
+                           }));
             }
         }
 
@@ -213,12 +220,8 @@ namespace PonsCognitiveServicesWPF.ViewModel
             get
             {
                 return _closeWindow
-                    ?? (_closeWindow = new RelayCommand(
-                    () =>
-                    {
-                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                        wnd?.Close();
-                    }));
+                       ?? (_closeWindow = new RelayCommand(
+                           () => { Environment.Exit(0); }));
             }
         }
 
@@ -227,28 +230,159 @@ namespace PonsCognitiveServicesWPF.ViewModel
             get
             {
                 return _maximizeWindow
-                    ?? (_maximizeWindow = new RelayCommand(
-                    () =>
-                    {
-                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                        if (wnd != null)
-                        {
-                            wnd.WindowState = wnd.WindowState== WindowState.Normal? WindowState.Maximized:WindowState.Normal;
-                        }
-                    }));
+                       ?? (_maximizeWindow = new RelayCommand(
+                           () =>
+                           {
+                               Window wnd = Application.Current.Windows.OfType<Window>()
+                                   .SingleOrDefault(x => x.IsActive);
+                               if (wnd != null)
+                               {
+                                   wnd.WindowState = wnd.WindowState == WindowState.Normal
+                                       ? WindowState.Maximized
+                                       : WindowState.Normal;
+                               }
+                           }));
             }
         }
+
         public RelayCommand MinimizeWindowCommand
         {
             get
             {
                 return _minimizeWindow
-                    ?? (_minimizeWindow = new RelayCommand(
-                    () =>
+                       ?? (_minimizeWindow = new RelayCommand(
+                           () =>
+                           {
+                               Window wnd = Application.Current.Windows.OfType<Window>()
+                                   .SingleOrDefault(x => x.IsActive);
+                               if (wnd != null) wnd.WindowState = WindowState.Minimized;
+                           }));
+            }
+        }
+
+        #endregion
+
+        #region SettingsPanel
+
+        private bool _isSettingsPanelShown = false;
+        private string _settingsButtonContext = ((char) 0xE09D).ToString();
+        private RelayCommand _settingsPanelToggle;
+        private Language _languageFrom;
+        private Translation _languageTo;
+        private RelayCommand _reverseLanguages;
+        private SpeechLocale _selectedLocale;
+
+        public string SettingsButtonContext
+        {
+            get { return _settingsButtonContext; }
+            set { Set(() => SettingsButtonContext, ref _settingsButtonContext, value); }
+        }
+
+        public bool IsSettingsPanelShown
+        {
+            get { return _isSettingsPanelShown; }
+            set { Set(() => IsSettingsPanelShown, ref _isSettingsPanelShown, value); }
+        }
+
+        public RelayCommand SettingsPanelToggle
+        {
+            get
+            {
+                return _settingsPanelToggle
+                       ?? (_settingsPanelToggle = new RelayCommand(
+                           () =>
+                           {
+                               if (IsSettingsPanelShown)
+                               {
+                                   IsSettingsPanelShown = false;
+                                   SettingsButtonContext = ((char) 0xE09D).ToString();
+                               }
+                               else
+                               {
+                                   IsSettingsPanelShown = true;
+                                   SettingsButtonContext = ((char) 0xE09C).ToString();
+                               }
+                           }));
+            }
+        }
+
+        public Language LanguageFrom
+        {
+            get { return _languageFrom; }
+            set
+            {
+                if (value.IsPonsAvailable && LanguageTranslation != null)
+                {
+                    //ZAMIANA
+                    if (value == LanguageTranslation.LanguageTo)
                     {
-                        Window wnd = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-                        if (wnd != null) wnd.WindowState = WindowState.Minimized;
-                    }));
+                        LanguageTranslation =
+                            LanguagesTree.Find(x => x == value).TranslatesTo.Find(x => x.LanguageTo == LanguageFrom);
+                    }
+                    else
+                    {
+                        Translation newTranslation =
+                            value.TranslatesTo.Find(x => x.LanguageTo == LanguageTranslation.LanguageTo);
+
+                        LanguageTranslation = newTranslation == null ? value.TranslatesTo[0] : newTranslation;
+
+
+                        //ZOSTAJE
+                    }
+                    //if (LanguageTranslation == null) LanguageTranslation = value.TranslatesTo[0];
+                    //Translation res = LanguageTranslation.LanguageTo.TranslatesTo.Find(x=>x.LanguageTo==LanguageFrom); //LanguageFrom
+                    //LanguageTranslation = res!=null
+                    //    ? res
+                    //    : value.TranslatesTo[0];
+                    //if (!(value.TranslatesTo.FindIndex(x=>x.LanguageTo==LanguageTranslation.LanguageTo)>=0)) //LanguageTo
+                    //    LanguageTranslation = value.TranslatesTo[0];
+                    ////Updating SelectedLocale
+                }
+                Set(() => LanguageFrom, ref _languageFrom, value);
+
+                if (LanguageFrom.IsMicrosoftSpeechRecognitionAvailable)
+                    this.CreateMicrophoneRecoClient();
+                SelectedLocale = value.CurrentLocale;
+            }
+        }
+
+        public Translation LanguageTranslation
+        {
+            get { return _languageTo; }
+            set { Set(() => LanguageTranslation, ref _languageTo, value); }
+        }
+
+        public List<Language> LanguagesTree => _languageTree.LanguageTree;
+
+
+        public SpeechLocale SelectedLocale
+        {
+            get { return _selectedLocale; }
+            set
+            {
+                if (value != null)
+                    _languageTree.SetLanguageLocale(LanguageFrom.PonsCode, value.Code);
+                //TODO try catch
+                Set(() => SelectedLocale, ref _selectedLocale, value);
+            }
+        }
+
+
+        public RelayCommand ReverseLanguages
+        {
+            get
+            {
+                return _reverseLanguages
+                       ?? (_reverseLanguages = new RelayCommand(
+                           () =>
+                           {
+                               if (LanguageTranslation != null)
+                               {
+                                   LanguageFrom = LanguageTranslation.LanguageTo;
+                               }
+                               else
+                                   throw new Exception("ERROR: 0001");
+                           }));
             }
         }
 
